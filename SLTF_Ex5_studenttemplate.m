@@ -5,9 +5,13 @@
 
 close all; clear all;
 
+% Constants
+mu_0 = 4 * pi * 1e-7; % Permeability of free space in H/m
+epsilon_0 = 8.854187817e-12; % Permittivity of free space in F/m
+c = 3e8; % Speed of light in m/s
+
 % Signal - Define all the parameters of the signal, such as frequency,
 % speed, etc.
-c = 3e8; % Speed of light in m/s
 f = 3e9; % Frequency in Hz
 lambda = c / f; % Wavelength in meters
 
@@ -36,6 +40,7 @@ for ii=1:length(width)
     Z_PPWG_TM_0(ii) = (a / width(ii)) * sqrt(mu_0 / epsilon_0); % Characteristic impedance of PPWG TM_0 mode
 end
 
+figure;
 plot(width,Z_PPTL)
 hold all
 plot(width,Z_PPWG_TM_0)
